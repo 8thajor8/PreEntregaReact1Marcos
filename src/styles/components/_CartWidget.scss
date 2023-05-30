@@ -1,0 +1,32 @@
+.icon__surround{
+    padding-right: 10px;
+}
+
+.cart__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: black;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    &:hover {
+        background-color: #000;
+        color: #FFF;
+    }
+}
+        
+
+
+.cart__count {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+}
