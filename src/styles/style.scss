@@ -1,7 +1,12 @@
 @import './components/NavBar';
 @import './components/CartWidget';
 @import './components/ItemListContainer';
+@import './components/ItemListCard';
 
+body{
+    min-height: 100vh;
+    background-color: #25223A;
+}
 
 *{
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -9,3 +14,21 @@
     padding: 0;
     
 }
+
+.section__button{
+    padding: 10px 40px;
+    margin: 25px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: white;
+    background-color: #6D67E4;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: content-box;
+    width: auto;
+    
+
+}
+

@@ -1,0 +1,27 @@
+[
+    {
+        "id": "c1",
+        "nombre": "SpaceCrafts",
+        
+        "descripcion": "Spacecrafts for all sizes",
+        "img": "https://i.imgur.com/Ym3y3uu.png"
+        
+    },
+    {
+        "id": "c2",
+        "nombre": "Droids",
+        
+        "descripcion": "Service Droid Support",
+        "img": "https://i.imgur.com/CvO0k1D.png"
+        
+    },
+    {
+        "id": "c3",
+        "nombre": "Parts",
+        
+        "descripcion": "Fix your craft",
+        "img": "https://i.imgur.com/V5nucRR.png"
+        
+       
+    }
+]
