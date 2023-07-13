@@ -1,7 +1,8 @@
 import ItemDetail from './ItemDetail'
 import { useState, useEffect } from 'react'
-import { getData } from '../helpers/getData'
 import { useParams } from "react-router-dom"
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../firebase/config'
 
 
 const ItemDetailContainer = () => {
@@ -13,27 +14,27 @@ const ItemDetailContainer = () => {
     
     useEffect(() => {
         setLoading(true)
+
+        const detailRef = doc(db, "products", itemId)
         
-        getData(itemId)
-            .then( (res) => {
-                if(!itemId){
-                    setItem(res)
-                    setGreet("Welcome Traveller!")
-                } else {
-                    const filteredProduct = res.find((item) => item.id === itemId);
-                    if (!filteredProduct) {
-                        setItem(res);
-                        setGreet("Sorry!")
-                        setAvail(false)
-                } else {
-                    setItem(filteredProduct);
+        getDoc(detailRef)
+            .then( (docSnapshot) => {
+                if(docSnapshot.exists()){
+                    const dbDetail  = {...docSnapshot.data(), id:docSnapshot.id}
+                    setItem(dbDetail);
                     setAvail(true)
-                    setGreet(filteredProduct.nombre)
-                    }
-                }
-            })
-            .catch((err) => console.log(err))
-            .finally(() => setLoading(false))
+                    setGreet(dbDetail.nombre)
+                    
+                } else {
+                    setItem({});
+                    setGreet("Sorry!")
+                    setAvail(false)
+                } 
+            
+            
+        })
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false))
     }, [itemId])
 
     

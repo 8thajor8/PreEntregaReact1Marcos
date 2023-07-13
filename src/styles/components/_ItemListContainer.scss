@@ -1,5 +1,6 @@
 .list__section{
     background-color: #25223A ;
+    padding-bottom: 70px;
     
     hr{
         width: 30%;
@@ -46,5 +47,8 @@
     font-size: 2rem;
     padding-bottom: 10px;
     text-shadow: -2px -2px 6px rgba(242,247,161,0.85);
+}
+.searchbar{
+    width: 50%
 }
 

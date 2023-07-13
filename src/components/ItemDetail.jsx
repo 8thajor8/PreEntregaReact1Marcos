@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom"
+import ItemCount from "./ItemCount"
+import { useContext, useState } from "react"
+import { CartContext } from "../context/CartContext"
 
 
-const ItemList = ({id, nombre, precio, descripcion, img, category, stateproduct}) => {
+const ItemDetail = ({id, nombre, precio, descripcion, img, category, stock, stateproduct}) => {
+    
+    const [cantidad, setCantidad] = useState(1)
+    const { addToCart, isInCart } = useContext(CartContext)
+
+    const handleAgregar = () => {
+        const product = {
+            id, nombre, precio, descripcion, img, category, stock, stateproduct, cantidad
+        }
+
+        addToCart(product)
+    }
 
     return (
 
@@ -12,7 +26,29 @@ const ItemList = ({id, nombre, precio, descripcion, img, category, stateproduct}
             <div className="text-center"><img className='card__image' src={img} alt={nombre}/></div>
             <p className="card__desc">{descripcion}</p>
             <p className="card__price">Precio: ${precio}</p>
-            <div className="d-flex justify-content-center"><Link className="card__button" to={`/products/${category}`}>Return to {category}</Link></div>
+            
+            {
+                isInCart(id)
+                ?   <div className="d-flex flex-column justify-content-center">
+                        <Link className="my-2 mx-auto card__button" to="/cart">Proceed to Checkout</Link>
+                    </div>
+                : <><ItemCount 
+                    max={stock}
+                    counter={cantidad}
+                    setCantidad={setCantidad}
+                    
+                />  <div className="d-flex flex-column justify-content-center">
+                        <button onClick={handleAgregar} className="my-2 mx-auto card__button">Add to Cart</button>
+                    </div>
+                </>
+            }   
+
+            
+            
+
+            <div className="d-flex flex-column justify-content-center">
+                <Link className=" mx-auto card__button" to={`/products/${category}`}>Return to {category}</Link>
+            </div>
         </div>
 
         :
@@ -22,4 +58,4 @@ const ItemList = ({id, nombre, precio, descripcion, img, category, stateproduct}
     )
 }
 
-export default ItemList
+export default ItemDetail

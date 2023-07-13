@@ -1,0 +1,39 @@
+.checkout__container{
+    background-color: #64d6df;
+    padding: 35px 20px;
+    border-radius: 15px;
+    margin: 10px 10px;
+    box-shadow: -1px 1px 12px 5px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 1px 12px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 1px 12px 5px rgba(0,0,0,0.75);
+    
+    transition: all 0.5s;
+				&:hover{
+					scale: (0.9);
+                    opacity: 0.9;
+				}
+
+}
+
+.checkout__form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    
+    padding-top: 60px;
+    color: white;
+}
+
+
+@media only screen and (min-width: 550px) {
+    .checkout__container{
+        margin: 10px 90px;
+    }
+    .checkout__form{
+        width: 30%; 
+    }
+}
+

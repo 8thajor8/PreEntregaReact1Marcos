@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useRef, useEffect } from "react";
+
 
 const ItemCard = ({id, nombre, precio, descripcion, img}) => {
     
